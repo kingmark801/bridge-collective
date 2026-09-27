@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridge Collective — Mobile</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: #3357ff;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #fff;
+    max-width: 480px;
+  }
+  body { display: flex; flex-direction: column; min-height: 100vh; }
+
+  .site-header {
+    height: 52px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .brand {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+  .menu-toggle { background: none; border: none; color: #fff; padding: 6px; display: flex; }
+
+  .hero-content { padding: 32px 22px 20px; }
+  .hero-content h1 {
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 500;
+    margin: 0 0 14px;
+    color: rgba(255,255,255,0.9);
+  }
+  .hero-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.68);
+    margin: 0;
+  }
+
+  .stats-grid { display: flex; flex-direction: column; flex: 1 1 auto; }
+  .stat {
+    padding: 26px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    min-height: 170px;
+    border-bottom: 1px solid rgba(255,255,255,0.16);
+  }
+  .stat-icon { color: rgba(255,255,255,0.85); margin-bottom: auto; }
+  .stat-value { font-size: 28px; font-weight: 500; align-self: flex-end; margin-top: -28px; }
+  .stat-label { margin-top: 20px; }
+  .stat-label strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .stat-label p { margin: 0; font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+
+  .site-footer {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 22px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.68);
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="#" class="brand"><span class="dot"></span>Bridge Collective</a>
+    <button class="menu-toggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <div class="hero-content">
+    <h1>A classroom for every child.</h1>
+    <p>We fund the schools, train the teachers, and measure what works — so every child we reach today becomes a graduate tomorrow.</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat">
+      <span class="stat-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg></span>
+      <span class="stat-value">2.4M</span>
+      <div class="stat-label"><strong>Students reached</strong><p>Across 31 countries since 2011.</p></div>
+    </div>
+    <div class="stat">
+      <span class="stat-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <span class="stat-value">1,284</span>
+      <div class="stat-label"><strong>Schools partnered</strong><p>In 14 countries, from Kenya to Guatemala.</p></div>
+    </div>
+    <div class="stat">
+      <span class="stat-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="stat-value">38K</span>
+      <div class="stat-label"><strong>Teachers trained</strong><p>Equipped with modern tools and methodology.</p></div>
+    </div>
+    <div class="stat">
+      <span class="stat-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 16l5-6 4 4 7-9M14 5h6v6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="stat-value">3.1×</span>
+      <div class="stat-label"><strong>Graduation lift</strong><p>Partner schools outperform national averages 3x.</p></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>© 2026 Bridge Collective</span>
+    <span>Registered charity 12345678</span>
+  </footer>
+
+</body>
+</html>

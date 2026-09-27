@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bridge Collective</title>
+<style>
+  :root{
+    --blue:#2f4ff2;
+    --blue-line: rgba(255,255,255,0.16);
+    --white:#ffffff;
+    --white-70: rgba(255,255,255,0.72);
+    --white-55: rgba(255,255,255,0.55);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{ box-sizing: inherit; }
+  html{ scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html, body{
+    margin:0; padding:0; height:100%;
+    background: var(--blue);
+    color: var(--white);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  .page{
+    min-height: 100%;
+    display:flex;
+    flex-direction: column;
+  }
+
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 22px 48px;
+    border-bottom: 1px solid var(--blue-line);
+    flex-shrink:0;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .brand .dot{
+    width:7px; height:7px;
+    border-radius:50%;
+    background: var(--white);
+    display:inline-block;
+  }
+  .menu-icon{
+    width:20px; height:14px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .menu-icon span{
+    display:block;
+    height:1.5px;
+    background: var(--white);
+    width:100%;
+  }
+
+  main{
+    flex:1;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding: 40px 56px;
+    max-width: 620px;
+  }
+  .hero h1{
+    font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px 0;
+  }
+  .hero p{
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--white-70);
+    max-width: 400px;
+    margin:0;
+  }
+
+  .stats{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border-left: 1px solid var(--blue-line);
+  }
+  .stat{
+    border-bottom: 1px solid var(--blue-line);
+    border-right: 1px solid var(--blue-line);
+    padding: 34px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height: 220px;
+  }
+  .stat:nth-child(2), .stat:nth-child(4){ border-right: none; }
+  .stat:nth-child(3), .stat:nth-child(4){ border-bottom: none; }
+
+  .stat-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+  .stat-top svg{
+    width:24px; height:24px;
+    stroke: var(--white);
+    fill:none;
+    stroke-width:1.6;
+  }
+  .stat-number{
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 600;
+    letter-spacing:-0.01em;
+  }
+  .stat-label{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .stat-desc{
+    font-size: 13.5px;
+    color: var(--white-55);
+    line-height:1.4;
+  }
+
+  footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 22px 48px;
+    border-top: 1px solid var(--blue-line);
+    font-size: 13px;
+    color: var(--white-55);
+    flex-shrink:0;
+    padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  }
+
+  @media (max-width: 760px){
+    main{ grid-template-columns: 1fr; }
+    .hero{ padding: 36px 24px; max-width:none; }
+    .hero p{ max-width:none; }
+    .stats{ border-left:none; grid-template-columns: 1fr 1fr; }
+    .stat{ padding: 22px 18px; min-height: 160px; }
+    header, footer{ padding: 18px 20px; }
+    footer{ flex-direction:column; gap:6px; align-items:flex-start; }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .hero h1, .hero p, .stat{
+      animation: rise .5s ease both;
+    }
+    .hero p{ animation-delay: .08s; }
+    .stat:nth-child(1){ animation-delay: .05s; }
+    .stat:nth-child(2){ animation-delay: .1s; }
+    .stat:nth-child(3){ animation-delay: .15s; }
+    .stat:nth-child(4){ animation-delay: .2s; }
+    @keyframes rise{
+      from{ opacity:0; transform: translateY(10px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand"><span class="dot"></span>Bridge Collective</div>
+    <div class="menu-icon"><span></span><span></span><span></span></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>A classroom<br>for every child.</h1>
+      <p>We fund the schools, train the teachers, and measure what works — so every child we reach today becomes a graduate tomorrow.</p>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="stat-top">
+          <svg viewBox="0 0 24 24"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="stat-number">2.4M</div>
+        </div>
+        <div>
+          <div class="stat-label">Students reached</div>
+          <div class="stat-desc">Across 31 countries since 2011.</div>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-top">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div>
+          <div class="stat-number">1,284</div>
+        </div>
+        <div>
+          <div class="stat-label">Schools partnered</div>
+          <div class="stat-desc">In 14 countries, from Kenya to Guatemala.</div>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-top">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        <div>
+          <div class="stat-number">38K</div>
+        </div>
+        <div>
+          <div class="stat-label">Teachers trained</div>
+          <div class="stat-desc">Equipped with modern tools and methodology.</div>
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-top">
+          <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
+        </div>
+        <div>
+          <div class="stat-number">3.1&times;</div>
+        </div>
+        <div>
+          <div class="stat-label">Graduation lift</div>
+          <div class="stat-desc">Partner schools outperform national averages 3x.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Bridge Collective</div>
+    <div>Registered charity 12345678</div>
+  </footer>
+
+</div>
+</body>
+</html>
